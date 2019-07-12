@@ -7,8 +7,8 @@ class BurgerStack extends React.Component {
         {this.props.pieces.map((piece, i) => 
         <div className='burger' 
           key={i} 
-          value={piece}
-          >{piece}
+          style={{backgroundColor: piece.color}}
+          >{piece.name}
         </div>)}
         <button onClick={this.props.onClick}>Clear Burger</button>
       </div>

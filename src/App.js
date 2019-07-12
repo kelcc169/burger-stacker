@@ -25,15 +25,14 @@ class App extends React.Component {
     this.clearBurger = this.clearBurger.bind(this)
   }
 
-  addIngredient(e) {
+  addIngredient(e, i) {
     e.preventDefault();
-    var stackPiece = e.target.value
-    var stack = this.state.stack
-    stack.unshift(stackPiece)
+    var stackCopy = Array.from(this.state.stack)
+    stackCopy.unshift(this.state.ingredients[i])
 
     this.setState({
-      stack
-    })
+      stack: stackCopy
+    });
   }
 
   clearBurger() {
@@ -48,7 +47,7 @@ class App extends React.Component {
         <Ingredients 
           className="ingredients"
           ingredients={this.state.ingredients}
-          onClick={(e) => this.addIngredient(e)}
+          onClick={this.addIngredient}
         />
         <BurgerStack
           className="ingredients"

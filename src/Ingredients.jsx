@@ -6,8 +6,7 @@ class Ingredients extends React.Component {
       <div className="ingredients">
         {this.props.ingredients.map((ingredient, i) => 
           <div key={i}>{ingredient.name}
-            <button value={ingredient.name}
-            onClick={this.props.onClick}>  >  </button>
+            <button onClick={(e) => this.props.onClick(e, i)}>  >  </button>
           </div>)}
       </div>
     );
